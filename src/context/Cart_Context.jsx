@@ -5,7 +5,7 @@ import reducer from "../reducer/Cart_Reducer"
 const CartContext=createContext();
 const getLocalData=()=>
 {
-    const newData=localStorage.getItem("MyCart");
+    let newData=localStorage.getItem("MyCart");
     if(newData===[])
     return [];
     else
@@ -44,8 +44,9 @@ const CartProvider=(({children})=>
     }
     useEffect(()=>
     {
-        dispatch({type:"total_amount"});
-        dispatch({type:"total_item"})
+        // dispatch({type:"total_amount"});
+        // dispatch({type:"total_item"})
+        dispatch({ type: "CART_ITEM_PRICE_TOTAL" });
         localStorage.setItem("MyCart",JSON.stringify(state.cart));
     },[state.cart]);
         return (<CartContext.Provider value={{...state,addToCart,removeData,clearData,setDecrease,setIncrease}}>

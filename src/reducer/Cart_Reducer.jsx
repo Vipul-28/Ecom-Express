@@ -113,26 +113,49 @@ if(action.type==="delete_all_data")
     cart:[],
   }
 }
-if(action.type==="total_item")
-{
-  let total=state.cart.reduce((initialValue,curElem)=>
-  {
-    let {amount}=curElem;
-    initialValue=initialValue+amount;
-    return initialValue;
-  },0)
-  return {...state,total_item:total}
-}
-if(action.type==="total_amount")
-{
-  let amountss=state.cart.reduce((initialValue,curElem)=>
-  {
-    let {price,amount}=curElem;
-    initialValue=initialValue+(price*amount);
-    return initialValue
-  },0)
-  return {...state,total_amount:amountss}
+// if(action.type==="total_item")
+// {
+//   let total=state.cart?.reduce((initialValue,curElem)=>
+//   {
+//     let {amount}=curElem;
+//     initialValue=initialValue+amount;
+//     return initialValue;
+//   },0)
+//   return {...state,total_item:total}
+// }
+// if(action.type==="total_amount")
+// {
+//   let amountss=state.cart?.reduce((initialValue,curElem)=>
+//   {
+//     let {price,amount}=curElem;
+//     initialValue=initialValue+(price*amount);
+//     return initialValue
+//   },0)
+//   return {...state,total_amount:amountss}
 
+// }
+
+
+if (action.type === "CART_ITEM_PRICE_TOTAL") {
+  let { total_item, total_price } = state.cart.reduce(
+    (accum, curElem) => {
+      let { price, amount } = curElem;
+
+      accum.total_item += amount;
+      accum.total_price += price * amount;
+
+      return accum;
+    },
+    {
+      total_item: 0,
+      total_price: 0,
+    }
+  );
+  return {
+    ...state,
+    total_item,
+    total_price,
+  };
 }
 return state;
 
