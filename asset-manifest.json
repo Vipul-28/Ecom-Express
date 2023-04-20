@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Ecom-Express/static/css/main.e6c13ad2.css",
+    "main.js": "/Ecom-Express/static/js/main.3db00fc1.js",
+    "index.html": "/Ecom-Express/index.html",
+    "main.e6c13ad2.css.map": "/Ecom-Express/static/css/main.e6c13ad2.css.map",
+    "main.3db00fc1.js.map": "/Ecom-Express/static/js/main.3db00fc1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.3db00fc1.js"
+  ]
+}
